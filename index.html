@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+	<title>Frontend Mentor | Interactive rating component</title>
+	<style>
+		.attribution {
+			position: absolute;
+			bottom: 10px;
+			width: 100%;
+			font-size: 11px;
+			text-align: center;
+		}
+
+		.attribution a {
+			color: white;
+		}
+
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: hsl(216, 12%, 8%);
+			color: white;
+			min-height: 100vh;
+		}
+
+		.thank_you {
+			width: 400px;
+			border-radius: 20px;
+			background: hsl(213, 19%, 18%);
+			padding: 30px;
+			display: none;
+			flex-direction: column;
+			gap: 25px;
+			justify-content: center;
+			align-items: center;
+		}
+
+		form {
+			width: 400px;
+			border-radius: 20px;
+			background: hsl(213, 19%, 18%);
+			padding: 30px;
+			display: flex;
+			flex-direction: column;
+			gap: 25px;
+			align-items: flex-start;
+		}
+
+		form > div:first-of-type {
+			width: 40px;
+			height: 40px;
+			background: hsl(213, 19%, 30%);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			object-fit: contain;
+			padding: 10px;
+		}
+
+		form p {
+			color: hsl(217, 12%, 63%);
+			line-height: 1.5;
+		}
+
+		form input {
+			display: none;
+		}
+
+		form > div:last-of-type {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+		}
+
+		form input + label {
+			width: 50px;
+			height: 50px;
+			background: hsl(213, 19%, 30%);
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			font-weight: 700;
+		}
+
+		form label:hover {
+			background: hsl(25, 97%, 53%);
+			color: black;
+		}
+
+		form input:checked + label {
+			background: white;
+			color: black;
+		}
+
+		p {
+			font-size: 15px;
+			font-weight: 400;
+		}
+
+		form button {
+			width: 100%;
+			height: 40px;
+			border-radius: 20px;
+			border: none;
+			outline: none;
+			font-weight: 700;
+			letter-spacing: 5px;
+			background: hsl(25, 97%, 53%);
+			cursor: pointer;
+		}
+
+		form button:hover {
+			background: white;
+			color: black;
+		}
+
+		#rating {
+			padding: 5px 15px;
+			color: hsl(25, 97%, 53%);
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: hsl(213, 19%, 30%);
+		}
+
+		.thank_you p {
+			text-align: center;
+			line-height: 1.5;
+			color: hsl(213, 19%, 70%);
+		}
+
+		@media screen and (max-width: 500px) {
+			form, .thank_you {
+				width: 85vw;
+			}
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<div>
+			<img src="images/icon-star.svg" alt="Star Icon">
+		</div>
+
+		<h1>How did we do?</h1>
+
+		<p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+	
+		<div>
+			<input type="radio" name="rating" value="1" id="r1" required>
+			<label for="r1">1</label>
+
+			<input type="radio" name="rating" value="2" id="r2">
+			<label for="r2">2</label>
+
+			<input type="radio" name="rating" value="3" id="r3">
+			<label for="r3">3</label>
+
+			<input type="radio" name="rating" value="4" id="r4">
+			<label for="r4">4</label>
+
+			<input type="radio" name="rating" value="5" id="r5">
+			<label for="r5">5</label>
+		</div>
+
+		<button type="submit">SUBMIT</button>
+	</form>
+
+	<div class="thank_you">
+		<img src="images/illustration-thank-you.svg" alt="Thank You Image" width="150px">
+
+		<p id="rating"></p>
+
+		<h2>Thank you!</h2>
+
+		<p>We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
+	</div>
+
+	<div class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by Dylan Yeo.</div>
+
+	<script>
+		const form = document.querySelector("form");
+		form.addEventListener("submit", (event) => {
+			event.preventDefault();
+
+			if (!form.checkValidity()) {
+				return;
+			}
+
+			const rating = document.querySelector("input:checked").value;
+			document.querySelector("#rating").textContent = `You selected ${rating} out of 5`;
+			form.style.display = "none";
+			document.querySelector(".thank_you").style.display = "flex";
+		})
+	</script>
+</body>
+</html>
