@@ -33,7 +33,7 @@ Desktop View: Thank You Page <br>
 Mobile View: Form <br>
 ![image](https://github.com/user-attachments/assets/08d8c9f8-dc6b-4139-b9cf-6b21f24ed10f)
 
-Mobile View: Thank You Page:
+Mobile View: Thank You Page: <br>
 ![image](https://github.com/user-attachments/assets/42cb23f3-e627-4cdd-a1ee-8be999cd6315)
 
 ### Links
